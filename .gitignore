@@ -89,7 +89,8 @@ out
 
 # Nuxt.js build / generate output
 .nuxt
-dist
+# Removed dist per assignment instructions
+# dist
 
 # Gatsby files
 .cache/
