@@ -18,6 +18,7 @@ I read up on writing svg, it seems pretty straight forward, just work from the f
 //Require packages
 const inquirer = require('inquirer');
 const fs = require('fs');
+const shapes = require('./lib/shapes')
 
 //Array of questions for user input
 const questions = [];
@@ -29,7 +30,9 @@ const writeFile = () => {};
 function generateSVG() {};
 
 //Function to initialize app
-function init() {};
+function init() {
+    // Triangle()
+};
 
 //Function call to initialize app
 init();
