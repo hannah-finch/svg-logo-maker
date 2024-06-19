@@ -36,7 +36,7 @@ const questions = [
 const writeToFile = (svgFormat) => {
     fs.writeFile('logo.svg', svgFormat, (err) => { err
         ? console.error(err)
-        : console.log('Logo generated!')
+        : console.log('logo.svg has been generated!')
     })
 };
 
@@ -55,7 +55,7 @@ function generateSVG(data) {
             renderedShape = new Square;
             break;
         default:
-            console.log("no shapes bro")
+            console.log("no shape selected")
     };
 
     // send input to set the fill color in the Shape class
@@ -66,14 +66,11 @@ ${renderedShape.render()}
 <text x="150" y="120" font-size="60" text-anchor="middle" fill="${data.textColor}">${data.text}</text></svg>`
 };
 
-
 //Function to initialize app
 function init() {
     inquirer
     .prompt(questions)
     .then((data) => {
-        // console.log(data);
-        console.log(generateSVG(data));
         const svgFormat = generateSVG(data);
         writeToFile(svgFormat);
     })
