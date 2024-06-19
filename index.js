@@ -29,7 +29,7 @@ const questions = [
     {
     type: "input",
     message: "Enter text for logo. (Must not be more than 3 characters)",
-    name: "enteredText",
+    name: "text",
     },
     {
     type: "input",
@@ -40,12 +40,12 @@ const questions = [
     type: "list",
     message: "Select a shape for the logo",
     choices: ["Triangle", "Circle", "Square"],
-    name: "selectedShape",
+    name: "shape",
     },
     {
     type: "input",
     message: "Enter a shape color",
-    name: "enteredFill",
+    name: "fill",
     }
 ];
 
@@ -53,11 +53,34 @@ const questions = [
 const writeFile = () => {};
 
 //Function to generate the SVG format
-function generateSVG() {};
+function generateSVG(data) {
+    let text = `${data.text}`;
+    let textColor = `${data.textColor}`;
+    let shape = `${data.shape}`;
+    let shapeFill = `${data.fill}`;
+
+    //just try and make a triangle first
+    let renderedShape = new Triangle
+    renderedShape.setColor(`${data.fill}`);
+
+    // console.log(`${renderedShape.line1}
+    // ${renderedShape.render()}`)
+
+    return `${renderedShape.line1}
+${renderedShape.render()}
+${renderedShape.line3}`
+
+};
+
 
 //Function to initialize app
 function init() {
-    // Triangle()
+    inquirer
+    .prompt(questions)
+    .then((data) => {
+        console.log(data);
+        console.log(generateSVG(data));
+    })
 };
 
 //Function call to initialize app
