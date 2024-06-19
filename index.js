@@ -18,10 +18,36 @@ I read up on writing svg, it seems pretty straight forward, just work from the f
 //Require packages
 const inquirer = require('inquirer');
 const fs = require('fs');
-const shapes = require('./lib/shapes')
+const shape = require('./lib/shapes.js')
+
+const Triangle = shape.Triangle;
+const Circle = shape.Circle;
+const Square = shape.Square;
 
 //Array of questions for user input
-const questions = [];
+const questions = [
+    {
+    type: "input",
+    message: "Enter text for logo. (Must not be more than 3 characters)",
+    name: "enteredText",
+    },
+    {
+    type: "input",
+    message: "Enter a text color",
+    name: "textColor",
+    },
+    {
+    type: "list",
+    message: "Select a shape for the logo",
+    choices: ["Triangle", "Circle", "Square"],
+    name: "selectedShape",
+    },
+    {
+    type: "input",
+    message: "Enter a shape color",
+    name: "enteredFill",
+    }
+];
 
 //Function to take in data and write SVG file
 const writeFile = () => {};
