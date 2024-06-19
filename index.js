@@ -1,6 +1,10 @@
 //Require packages
 const inquirer = require('inquirer');
 const fs = require('fs');
+const MaxLengthInputPrompt = require('inquirer-maxlength-input-prompt')
+//register the max-length prompt with inquirer
+inquirer.registerPrompt('maxlength-input', MaxLengthInputPrompt)
+
 const shapes = require('./lib/shapes.js');
 
 const Triangle = shapes.Triangle;
@@ -10,9 +14,10 @@ const Square = shapes.Square;
 //Array of questions for user input
 const questions = [
     {
-    type: "input",
+    type: "maxlength-input",
     message: "Enter text for logo. (Must not be more than 3 characters)",
     name: "text",
+    maxLength: 3
     },
     {
     type: "input",
