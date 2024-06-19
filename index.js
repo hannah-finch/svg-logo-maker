@@ -37,7 +37,21 @@ const writeFile = () => {};
 
 //Function to generate the SVG format
 function generateSVG(data) {
-
+    let shape = data.shape;
+    let renderedShape;
+    switch(shape) {
+        case "Triangle":
+            renderedShape = new Triangle;
+            break;
+        case "Circle":
+            renderedShape = new Circle;
+            break;
+        case "Square":
+            renderedShape = new Square;
+            break;
+        default:
+            console.log("no shapes bro")
+    };
 
     // send input to set the fill color in the Shape class
     renderedShape.setColor(`${data.fill}`);
@@ -53,7 +67,7 @@ function init() {
     inquirer
     .prompt(questions)
     .then((data) => {
-        console.log(data);
+        // console.log(data);
         console.log(generateSVG(data));
     })
 };
